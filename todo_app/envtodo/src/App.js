@@ -102,35 +102,37 @@ class App extends Component {
               marginBottom: "20px",
             }}
           >
+             
             <span style={{ color: "#C14844", fontSize: "1.5rem" }}>
-              Developer : K VINOD KUMAR
-
-            </span>
+             Developer : K VINOD KUMAR 
+             </span>
           </Col>
         </Row>
 
         <hr />
         <Row>
           <Col md={{ span: 5, offset: 4 }}>
-            <InputGroup className="mb-3">
-              <FormControl
-                placeholder="add item . . . "
-                size="lg"
-                value={this.state.userInput}
-                onChange={(item) => this.updateInput(item.target.value)}
-                aria-label="add something"
-                aria-describedby="basic-addon2"
-              />
-              <InputGroup>
-                <Button
-                  variant="dark"
-                  className="mt-2"
-                  onClick={() => this.addItem()}
-                >
-                  ADD
-                </Button>
-              </InputGroup>
-            </InputGroup>
+
+          <InputGroup className="mb-3 d-flex justify-content-between">
+  <FormControl
+    placeholder="add item . . . "
+    size="lg"
+    value={this.state.userInput}
+    onChange={(item) => this.updateInput(item.target.value)}
+    aria-label="add something"
+    aria-describedby="basic-addon2"
+  />
+  <Button
+    variant="dark"
+    className="p-2"
+    onClick={() => this.addItem()}
+  >
+    ADD
+  </Button>
+</InputGroup>
+
+
+
           </Col>
         </Row>
         <Row>
@@ -140,34 +142,36 @@ class App extends Component {
               {this.state.list.map((item, index) => {
                 return (
                   <div key={index}>
-                    <ListGroup.Item
-                      variant="light"
-                      action
-                      style={{
-                        display: "flex",
-                        justifyContent: "space-between",
-                        backgroundColor: "#E0A3DD",
-                        color: "#0652DD",
-                        marginBottom: "10px",
-                      }}
-                    >
-                      {item.value}
-                      <span>
-                        <Button
-                          style={{ marginRight: "10px" }}
-                          variant="danger"
-                          onClick={() => this.deleteItem(item.id)}
-                        >
-                          Delete
-                        </Button>
-                        <Button
-                          variant="info"
-                          onClick={() => this.editItem(index)}
-                        >
-                          Edit
-                        </Button>
-                      </span>
-                    </ListGroup.Item>
+
+<ListGroup.Item
+  variant="dark"
+  action
+  style={{
+    display: "flex",
+    justifyContent: "space-between",
+    alignItems: "center", // Align items vertically centered
+    backgroundColor: "#bbbbbb",
+    color: "#000000",
+    marginBottom: "10px",
+  }}
+>
+  {item.value}
+  <span style={{ marginLeft: "auto" }}> {/* Push buttons to the right */}
+    <Button variant="info" onClick={() => this.editItem(index)}>
+      Edit
+    </Button>
+    <span style={{ marginRight: "10px" }}> {/* Add a margin-right for spacing */}
+      <Button
+        variant="danger"
+        onClick={() => this.deleteItem(item.id)}
+      >
+        Delete
+      </Button>
+    </span>
+  </span>
+</ListGroup.Item>
+
+
                   </div>
                 );
               })}
@@ -175,6 +179,7 @@ class App extends Component {
           </Col>
         </Row>
         <Row>
+          
           <Col
             md={{ span: 5, offset: 4 }}
             style={{
